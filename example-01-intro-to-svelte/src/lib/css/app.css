@@ -1,0 +1,16 @@
+/* System Fonts as used by GitHub */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/**
+ * This is just a regular CSS file, nothing special here.
+ * Once loaded in routes/+layout.svelte, it will behave exactly as normal CSS.
+ *
+ * The CSS below will style all paragraphs in the entire app to have red text.
+ */
+
+p {
+	color: red;
+}

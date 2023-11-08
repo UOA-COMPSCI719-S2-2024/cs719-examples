@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example 0 - Motivation for Svelte - Customer data site</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="./data.js"></script>
+        <script src="./client.js" defer></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Customer data</h1>
+            <h2>Summary</h2>
+            <div class="summary">
+                <p>
+                    <strong>Total number of customers:</strong>
+                    <span id="total-customers"></span>
+                </p>
+                <p>
+                    <strong>By loyalty category:</strong>
+                    Bronze: <span id="bronze-customers"></span>, Silver:
+                    <span id="silver-customers"></span>, Gold:
+                    <span id="gold-customers"></span>
+                </p>
+            </div>
+            <h2>Details</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Loyalty points</th>
+                        <th>Loyalty category</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-table-body"></tbody>
+            </table>
+        </div>
+    </body>
+</html>
