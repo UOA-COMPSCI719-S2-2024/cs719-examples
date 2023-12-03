@@ -27,3 +27,11 @@ In this project, you can see the following:
   Have a look at [`lib/js/fetch-store.js`](./src/lib/js/fetch-store.js) and read the comments there to see how it works. Then, look at [`lib/js/pokemon-store.js`](./src/lib/js/pokemon-store.js) and the [`PokemonDetail`](./src/lib/components/PokemonDetail.svelte) component to see it in action, loading information about various Pokemon (it's also used somehwere else in the app - see if you can find it!). **Note:** Unfortunately, this won't work with the `{#await}` block, but we can easily use `{#if}` to check the loading / error status, for example.
 
   You are welcome to use and modify this function in your own code. Be sure to credit the source!
+
+- **Todo list**: The page at [`/todos`](./src/routes/todos/+page.svelte) puts together many of the concepts Svelte II, into a more "real" app, allowing users to add, modify, and delete items from a todo list. The todo list is backed by a Svelte store located at [`lib/js/todo-store.js`](./src/lib/js/todo-store.js).
+
+  In this example, we can see that we can use a combination of stores and prop passing / event handling, in basically any combination. Our `NewTodoForm` component dispatches a custom event whenever the user wants to add a new todo item. This is added to the store in `+page.svelte`, which in turn passes the todo list store to the `TodoList` component as a _bound_ prop. We use `bind:` here so that whenever the `TodoList` component modifies the todo list in any way, the page and store will be properly updated to match.
+
+  We could have instead made our `TodoList` component access the todos store directly, rather than supplying it as a bound prop. This is equally valid.
+
+  Within the `TodoList` component itself, we can see that binding to individual properties of a todo item works absolutely fine, and everything is updated as we would expect. We can also see how we can delete an item from the todos array by filtering out the item we'd like to delete.

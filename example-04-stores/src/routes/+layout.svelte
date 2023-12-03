@@ -14,6 +14,8 @@
 		<li><a href="/" class:active={path === "/"}>Home</a></li>
 
 		<li><a href="/fetch-stores" class:active={path === "/fetch-stores"}>Fetch stores</a></li>
+
+		<li><a href="/todos" class:active={path === "/todos"}>Todo List</a></li>
 	</ul>
 
 	<span />
