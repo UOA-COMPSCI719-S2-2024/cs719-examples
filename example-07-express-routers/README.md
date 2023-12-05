@@ -26,7 +26,7 @@ This example shows how we can use Express Routers to break our Express server up
 
   - The single route handler in `api-products.js` (line 7) will be available at path **/api/products**.
 
-  - The two route handlers in `api-people.js` (lines 11 and 31) will be available at paths **/api/people** and **/api/people/:id** (where `:id` is a path param).
+  - The two route handlers in `api-people.js` (lines 15 and 34) will be available at paths **/api/people** and **/api/people/:id** (where `:id` is a path param).
 
 - **Route organization**: In this application, we have organized our routes as follows:
 

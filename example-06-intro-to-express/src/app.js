@@ -13,8 +13,12 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 
-// Just some dummy data...
-import { people } from "./data/people.js";
+// Some data access functions to retrieve people.
+import {
+  retrievePeople,
+  retrievePeopleByFirstName,
+  retrievePersonById
+} from "./data/people-dao.js";
 
 // Set's our port to the PORT environment variable, or 3000 by default if the env is not configured.
 const PORT = process.env.PORT ?? 3000;
@@ -78,11 +82,10 @@ app.get("/api/people", (req, res) => {
   const firstName = req.query.firstName;
 
   // If there's no query parameter supplied, just return an array of all people.
-  if (!firstName) return res.json(people);
+  if (!firstName) return res.json(retrievePeople());
 
   // If the firstName query parameter is supplied, instead return an array of all people whose first names match the filter.
-  const peopleSearch = people.filter((p) => p.firstName === firstName);
-  return res.json(peopleSearch);
+  return res.json(retrievePeopleByFirstName(firstName));
 });
 
 /**
@@ -94,7 +97,7 @@ app.get("/api/people/:id", (req, res) => {
   const id = req.params.id;
 
   // Find the person with the matching id
-  const person = people.find((p) => p.id == id);
+  const person = retrievePersonById(id);
 
   // If there is a match, return that person as JSON
   if (person) return res.json(person);

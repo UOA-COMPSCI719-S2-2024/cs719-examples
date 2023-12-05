@@ -1,5 +1,5 @@
 /** ChatGPT genned array of products. */
-export const products = [
+const products = [
   {
     id: 1,
     name: "Pokeball Set",
@@ -61,3 +61,12 @@ export const products = [
       "Charge your devices with the power of Pikachu! This electric charger features a cute Pikachu design and provides a reliable and speedy charge for your smartphones, tablets, and other gadgets. Carry Pikachu's energy wherever you go."
   }
 ];
+
+/**
+ * Retrieves an array of all products.
+ *
+ * @returns an array of all products
+ */
+export function retrieveProducts() {
+  return products;
+}

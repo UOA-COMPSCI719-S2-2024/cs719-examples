@@ -1,5 +1,9 @@
 import express from "express";
-import { people } from "../../data/people.js";
+import {
+  retrievePeople,
+  retrievePeopleByLastName,
+  retrievePersonById
+} from "../../data/people-dao.js";
 
 const router = express.Router();
 
@@ -17,11 +21,10 @@ router.get("/", (req, res) => {
   const lastName = req.query.lastName;
 
   // If there's no query parameter supplied, just return an array of all people.
-  if (!lastName) return res.json(people);
+  if (!lastName) return res.json(retrievePeople());
 
   // If the firstName query parameter is supplied, instead return an array of all people whose last names match the filter.
-  const peopleSearch = people.filter((p) => p.lastName === lastName);
-  return res.json(peopleSearch);
+  return res.json(retrievePeopleByLastName(lastName));
 });
 
 /**
@@ -33,7 +36,7 @@ router.get("/:id", (req, res) => {
   const id = req.params.id;
 
   // Find the person with the matching id
-  const person = people.find((p) => p.id == id);
+  const person = retrievePersonById(id);
 
   // If there is a match, return that person as JSON
   if (person) return res.json(person);
