@@ -30,13 +30,13 @@ When you navigate to a route in your browser, it sends a `GET` request to that r
 
   - `npm run dev` will also start your server, but will also listen for any changes to the code. If you make changes to the code, _nodemon_ will automatically stop the server and restart it. In this way, you get a dev experience similar to your Svelte development, where you don't have to continually manually restart / redeploy things. This is useful for development.
 
-- **Reading environment variables**: On [`index.js`](./src/index.js) line 9, we are using the `dotenv` package to read in and configure our sever with any _environment variables_ we have defined in the [`.env`](./.env) file. In our case, we have one variable defined there - `PORT=3000`.
+- **Reading environment variables**: On [`app.js`](./src/app.js) line 9, we are using the `dotenv` package to read in and configure our sever with any _environment variables_ we have defined in the [`.env`](./.env) file. In our case, we have one variable defined there - `PORT=3000`.
 
   We are using this environment variable on line 20 (`process.env` will contain all our environment variables as properties) - and are also supplying `3000` as a default value in case no environment variable is defined.
 
   It is usually considered good practice to define things such as ports, base URLs, API keys, and database connection strings as environment variables. That way, we can change them without having to edit our JavaScript code, and we can even easily exclude them from version control if they contain private information.
 
-- **Server setup**: In `index.js`, we can see a basic Express setup, including:
+- **Server setup**: In `app.js`, we can see a basic Express setup, including:
 
   - Creating the server (line 23)
   - Adding CORS support (line 36)
