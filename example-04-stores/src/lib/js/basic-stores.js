@@ -32,10 +32,10 @@ export const lastNameStore = writable("");
  * The derived result will be a JS object with a firstName, lastName, and age property.
  */
 export const personStore = derived(
-	[squareStore, firstNameStore, lastNameStore],
-	([$squareStore, $firstNameStore, $lastNameStore]) => ({
-		firstName: $firstNameStore,
-		lastName: $lastNameStore,
-		age: $squareStore
-	})
+  [squareStore, firstNameStore, lastNameStore],
+  ([$squareStore, $firstNameStore, $lastNameStore]) => ({
+    firstName: $firstNameStore,
+    lastName: $lastNameStore,
+    age: $squareStore
+  })
 );

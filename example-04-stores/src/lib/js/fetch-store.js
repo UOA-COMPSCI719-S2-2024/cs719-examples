@@ -16,34 +16,34 @@ import { writable } from "svelte/store";
  * @author Andrew Meads, modified from code found at https://svelte.dev/repl/b2d671b8119845ca903667f1b3a96e31?version=3.37.0
  */
 export function fetchStore(url, initialData = []) {
-	// Create the stores
-	const loading = writable(false);
-	const error = writable(false);
-	const data = writable(initialData);
+  // Create the stores
+  const loading = writable(false);
+  const error = writable(false);
+  const data = writable(initialData);
 
-	/**
-	 * The function to actually get the data
-	 */
-	async function get() {
-		// Before fetching, set "loading" to true and clear any error messages
-		loading.set(true);
-		error.set(false);
+  /**
+   * The function to actually get the data
+   */
+  async function get() {
+    // Before fetching, set "loading" to true and clear any error messages
+    loading.set(true);
+    error.set(false);
 
-		try {
-			// Try to fetch the data and save the result to the data store
-			const response = await fetch(url);
-			data.set(await response.json());
-		} catch (err) {
-			// If there was an error, save it here.
-			error.set(err);
-		}
+    try {
+      // Try to fetch the data and save the result to the data store
+      const response = await fetch(url);
+      data.set(await response.json());
+    } catch (err) {
+      // If there was an error, save it here.
+      error.set(err);
+    }
 
-		// We're done loading.
-		loading.set(false);
-	}
+    // We're done loading.
+    loading.set(false);
+  }
 
-	// Start fetching data immediately
-	get();
+  // Start fetching data immediately
+  get();
 
-	return [data, loading, error, get];
+  return [data, loading, error, get];
 }

@@ -1,7 +1,7 @@
 <script>
-	let a = 0;
-	let b = 0;
-	$: sum = a + b;
+  let a = 0;
+  let b = 0;
+  $: sum = a + b;
 </script>
 
 <!-- The two inputs below have their values bound to the variables a and b defined above.
@@ -11,5 +11,5 @@
     recalculated as it is a reactive statement). -->
 
 <div>
-	<input type="number" bind:value={a} /> + <input type="number" bind:value={b} /> = {sum}
+  <input type="number" bind:value={a} /> + <input type="number" bind:value={b} /> = {sum}
 </div>

@@ -1,9 +1,9 @@
 import { writable } from "svelte/store";
 
 const INITIAL_TODOS = [
-	{ task: "Finish Lecture", dueDate: "2023-12-03", isComplete: true },
-	{ task: "Finish Lab", dueDate: "2023-12-03", isComplete: false },
-	{ task: "Celebrate Christmas", dueDate: "2023-12-25", isComplete: false }
+  { task: "Finish Lecture", dueDate: "2023-12-03", isComplete: true },
+  { task: "Finish Lab", dueDate: "2023-12-03", isComplete: false },
+  { task: "Celebrate Christmas", dueDate: "2023-12-25", isComplete: false }
 ];
 
 export const todoStore = writable(INITIAL_TODOS);

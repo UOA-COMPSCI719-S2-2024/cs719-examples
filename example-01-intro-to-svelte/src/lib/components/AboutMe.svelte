@@ -1,11 +1,11 @@
 <script>
-	/**
-	 * Welcome to your first Svelte component!
-	 *
-	 * Code in this script block runs when the component first loads.
-	 */
-	export let name = "Andrew";
-	export let interest;
+  /**
+   * Welcome to your first Svelte component!
+   *
+   * Code in this script block runs when the component first loads.
+   */
+  export let name = "Andrew";
+  export let interest;
 </script>
 
 <!-- The "HTML" section starts here. We can use a mix of HTML,
@@ -20,8 +20,8 @@
 	this component. For example, the CSS below will make all paragraphs in this component have bold, green
 	text (but will not affect any other paragraphs in our app in any way). -->
 <style>
-	p {
-		color: green;
-		font-weight: bold;
-	}
+  p {
+    color: green;
+    font-weight: bold;
+  }
 </style>

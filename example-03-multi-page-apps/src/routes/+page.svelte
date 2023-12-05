@@ -2,7 +2,7 @@
 	include in a standard <head> element in a normal HTML page. The most common use for this is to set
 	the page's <title>. -->
 <svelte:head>
-	<title>Home</title>
+  <title>Home</title>
 </svelte:head>
 
 <h1>Home page</h1>
