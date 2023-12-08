@@ -64,3 +64,21 @@ export function retrievePeopleByFirstName(firstName) {
 export function retrievePersonById(id) {
   return people.find((p) => p.id == id);
 }
+
+/**
+ * Adds new person with the given details to the database and returns it.
+ *
+ * @param {string} firstName the new person's first name
+ * @param {string} lastName the new person's last name
+ * @param {string} email the new person's email address
+ */
+export function createPerson(firstName, lastName, email) {
+  const newPerson = {
+    id: people.length + 1,
+    firstName,
+    lastName,
+    email
+  };
+  people.push(newPerson);
+  return newPerson;
+}

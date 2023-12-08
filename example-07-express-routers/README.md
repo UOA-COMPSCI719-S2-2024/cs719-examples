@@ -12,7 +12,7 @@ This example shows how we can use Express Routers to break our Express server up
 
 - **Nesting routers**: In this app, we have some layers of nesting in our routers, as follows:
 
-  - [`app.js`](./src/app.js) uses [`routes/routes.js`](./src/routes/routes.js), at path **/** (see `app.js` line 25).
+  - [`app.js`](./src/app.js) uses [`routes/routes.js`](./src/routes/routes.js), at path **/** (see `app.js` line 26).
 
     - `routes/routes.js` uses [`routes/api/api.js`](./src/routes/api/api.js), at path **/api** (see `routes.js` line 24).
 

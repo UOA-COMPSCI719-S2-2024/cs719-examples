@@ -12,12 +12,14 @@ dotenv.config();
 // Imports which we will use
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
 
 // Some data access functions to retrieve people.
 import {
   retrievePeople,
   retrievePeopleByFirstName,
-  retrievePersonById
+  retrievePersonById,
+  createPerson
 } from "./data/people-dao.js";
 
 // Set's our port to the PORT environment variable, or 3000 by default if the env is not configured.
@@ -25,6 +27,14 @@ const PORT = process.env.PORT ?? 3000;
 
 // Creates the express server
 const app = express();
+
+/**
+ * Adds some default console logging to our app. This will configure the morgan middleware in a really basic manner.
+ * For more advanced configuration options,
+ * 
+ * @see https://www.npmjs.com/package/morgan
+ */
+app.use(morgan('combined'));
 
 /**
  * app.use() allows us to add Middleware to our Express applications. Essentially, middleware will
@@ -100,10 +110,22 @@ app.get("/api/people/:id", (req, res) => {
   const person = retrievePersonById(id);
 
   // If there is a match, return that person as JSON
-  if (person) return res.json(person);
+  if (person) return res.header("My-Header", "myValue").json(person);
 
   // Otherwise, return a 404 (Not Found) error code
   return res.sendStatus(404);
+});
+
+/**
+ * This route handler will respond to a POST request to "/api/people". It will add a new
+ * person to the "database", based on the info contained in the request body. It will return a
+ * 201 (Created) status code, along with the URL location of the new person, and a JSON
+ * representation of that person.
+ */
+app.post("/api/people", (req, res) => {
+  const newPerson = createPerson(req.body.firstName, req.body.lastName, req.body.email);
+
+  return res.status(201).location(`/api/people/${newPerson.id}`).json(newPerson);
 });
 
 /**
