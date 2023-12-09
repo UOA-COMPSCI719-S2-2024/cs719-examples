@@ -67,3 +67,30 @@ If `validateSync()` returns successfully, then we _know_ that the returned objec
 Another example can be seen in the same file on lines 167 and 194 (updating a customer), and then in `orders-dao.js` lines 52 and 79 (creating a new order). The "create order" schema is particularly complex, but Yup can handle arbitrarily complex schema.
 
 A full deep-dive of this package is beyond the scope of this course. However, you will be expected to perform simple request validation in a practical test, and complex validation in the final project. So we highly encourage you to look into the library further when you can!
+
+### New API specification
+
+Here is the new API specification, slightly modified now that we can easily validate our inputs and return more appropriate response codes:
+
+1. `GET /api/customers`: Returns a `200 OK` response with a JSON array of customers.
+
+   - If the optional `search` query param is defined, only customers whose first name, last name, or email address match the search query will be returned. If no customers match, an empty array will be returned.
+   - Otherwise, all customers will be returned.
+
+2. `GET /api/customers/:customerId`: Finds the customer with the given `id`. If found, a `200 OK` response is returned with a JSON representation of that customer. Otherwise, a `404 Not Found` response is returned.
+
+3. `POST /api/customers`: Creates a new customer with the information given in the request body. The request body must contain a valid `firstName` (string), `lastName` (string), and `email` (string, valid email address). If not, a `422 Unprocessable Content` response will be returned. Otherwise, returns a `201 Created` response with a JSON representation of the new customer, and a `Location` header pointing to the new customer.
+
+4. `PATCH /api/customers/:customerId`: Updates the customer with the given `id`, with the information in the request body. If the customer doesn't exist, `404 Not Found` will be returned. Otherwise, the udpate will be attempted. `firstName`, `lastName`, and `email` are all optional, but if supplied, must be valid. If not, `422 Unprocessable Content` will be returned. If the update is successful, `204 No Content` is returned.
+
+5. `DELETE /api/customers/:customerId`: Deletes the customer with the given `id`, if it exists. Either way, returns a `204 No Content` response.
+
+6. `GET /api/customers/:customerId/orders`: Returns a `200 OK` response with a JSON array of all orders for the given customer if that customer exists, or a `404 Not Found` response otherwise.
+
+7. `GET /api/customers/:customerId/orders/:orderId`: Finds the order with the given `id` belonging to the given customer. If found, returns a `200 OK` response with a JSON representation of that order. Otherwise, returns a `404 Not Found` response.
+
+8. `POST /api/customers/:customerId/orders`: Creates a new order for the given customer, with the information given in the request body. If the customer doesn't exist, returns a `404 Not Found` response.
+
+   Valid orders must be a JSON array consisting of at least one order item. Each order item must have a `product` (string) and `amount` (integer > 0). If the incoming order is not valid, `422 Unprocessable Content` will be returned.
+
+   Otherwise, the order will be created, and a `201 Created` response will be returned along with a JSON representation of that order, and a `Location` header pointing to that order.
