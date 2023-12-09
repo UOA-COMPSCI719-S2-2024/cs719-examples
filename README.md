@@ -19,3 +19,9 @@ This repository contains example code which you can run and play around with.
 6. [**intro-to-express**](./example-06-intro-to-express/): Contains a basic Node.js / [Express](https://expressjs.com/) server with a couple of _routes_ (around getting people info from a "database") and _middleware_ configurations. Contains many comments explaining what each piece does.
 
 7. [**express-routers**](./example-07-express-routers/): Contains an Express server building on example 6 by organizing route handler code using Express routers. All Express servers provided (and made by you) throughout the course will follow this general layout.
+
+8. [**rest-services**](./example-08-rest-services/): Contains an example RESTful Customer / Order API, written using node.js and Express.
+
+9. [**rest-services-with-middleware**](./example-09-rest-services-with-middleware/): Expands on the previous exmaple by using custom middleware to extract common functionality (searching for a customer with a particular id and returning a 404 Not Found response if the customer doesn't exist) into its own reusable middleware function.
+
+9. [**rest-services-with-validation**](./example-09-rest-services-with-validation/): Expands on the previous exmaple by adding validation of incoming client requests using the [Yup](https://www.npmjs.com/package/yup) package.
