@@ -68,7 +68,7 @@ router.patch("/:customerId", (req, res) => {
  * returns a 204 (No Content) response.
  */
 router.delete("/:customerId", (req, res) => {
-  deleteCustomer(req.params.id, false);
+  deleteCustomer(req.params.customerId, false);
   return res.sendStatus(204);
 });
 
