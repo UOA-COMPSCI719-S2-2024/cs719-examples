@@ -24,4 +24,14 @@ This repository contains example code which you can run and play around with.
 
 9. [**rest-services-with-middleware**](./example-09-rest-services-with-middleware/): Expands on the previous exmaple by using custom middleware to extract common functionality (searching for a customer with a particular id and returning a 404 Not Found response if the customer doesn't exist) into its own reusable middleware function.
 
-9. [**rest-services-with-validation**](./example-09-rest-services-with-validation/): Expands on the previous exmaple by adding validation of incoming client requests using the [Yup](https://www.npmjs.com/package/yup) package.
+10. [**rest-services-with-validation**](./example-10-rest-services-with-validation/): Expands on the previous exmaple by adding validation of incoming client requests using the [Yup](https://www.npmjs.com/package/yup) package.
+
+11. [**svelte-express**](./example-11-svelte-express/): Shows how we can use a SvelteKit frontend with a node.js / Express backend.
+
+12. [**svelte-express-comprehensive**](./example-12-svelte-express-comprehensive/): A more advanced version of the previous example, this time also showing how we can send non-`GET` requests from the frontend.
+
+13. [**cookies**](./example-13-cookies/): Shows how we can interact with HTTP cookies from both the frontend and backend.
+
+14. [**fullstack**](./example-14-fullstack/): Shows a full-stack application, including an SQLite database, node.js / Express backend, and SvelteKit frontend.
+
+15. [**file-uploads**](./example-15-file-uploads/): A bonus example showing how we can allow users to upload files using the `FormData` object on the frontend, and the `multer` package on the backend. **Hint:** Useful for your final project!!
