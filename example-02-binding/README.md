@@ -25,15 +25,3 @@ In this project, you can see the following:
 
     We can also see on line 34 that we've bound the same `enteredNumber` to an `<input>`. The result is that we can edit `enteredNumber` by either clicking the numpad buttons or typing in the input box.
 
-- **Fetching data using `fetch()` and `{#await}`**: In [`PokemonInfo.svelte`](./src/lib/components/PokemonInfo.svelte), we've defined an `async` function on line 10, to fetch some info about random Pokemon from an API hosted on `trex-sandwich.com`. In that function, there are options to test various delays and errors.
-
-    We can't use `await` within the root of the `<script>` block. Therefore, on line 30, we're calling our `getRandomPokemon()` function to get the *promise*, rather than the actual returned data itself.
-
-    Then, on line 33, we're using Svelte's `{#await}` block to await that promise. This block has three sections defined:
-
-    - The elements in the main `{#await}` block will be rendered as long as the promise is not yet resolved or rejected (i.e. the data is still being loaded from the API). We can use this section to display some kind of "loading" indicator to the user.
-
-    - The elements in the `{:then}` block will be rendered if the promise successfully resolves (i.e. the data is returned from the API successfully). The value on line 36 which we've named `pokemon` will be set from the `data` returned by our `getRandomPokemon()` async function. We can use this section to display the data returned from the API.
-
-    - The elements in the `{:catch}` block will be rendered if the promise rejects (i.e. if there's some kind of error). The value we've named `err` will be set from the error which is `throw`n by our function. The `fetch()` call itself will probably not throw an error unless the internet is down, so instead, we can test by setting `alwaysThrowError` to `true`. This section can be used to display an error message to the user.
-

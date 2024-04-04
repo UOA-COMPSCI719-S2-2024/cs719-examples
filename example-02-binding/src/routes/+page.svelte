@@ -2,12 +2,10 @@
   import SimpleCalculator from "$lib/components/SimpleCalculator.svelte";
   import NumberPad from "$lib/components/NumberPad.svelte";
   import BindableNumberPad from "$lib/components/BindableNumberPad.svelte";
-  import PokemonInfo from "$lib/components/PokemonInfo.svelte";
   import SignupForm from "$lib/components/SignupForm.svelte";
 
   // This value will be set by the NumberPad below.
   let numberClicked = null;
-
   // This value can be changed with the BindableNumberPad or its associated <input> below.
   let enteredNumber = 0;
 </script>
@@ -38,9 +36,6 @@
   <BindableNumberPad bind:value={enteredNumber} />
   <input type="number" bind:value={enteredNumber} />
 </div>
-
-<h3>Pokemon info (shows off fetch() with an #await block)</h3>
-<PokemonInfo />
 
 <style>
   .numpad-container {

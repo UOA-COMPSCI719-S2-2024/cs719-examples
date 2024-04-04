@@ -1,5 +1,5 @@
 {
-	"name": "example-01-intro-to-svelte",
+	"name": "example-04-stores",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {

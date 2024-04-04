@@ -45,6 +45,10 @@
   <CounterSquared />
 </div>
 
+<!-- A shopping list with some stuff inside -->
+<ShoppingList list={["Pokemon cards", "Dragonball Z Figurines", "Comic books"]} />
+
+<!-- An empty shopping list -->
 <ShoppingList list={[]} />
 
 <!-- An "internal" style. CSS defined here will only apply to this component. -->

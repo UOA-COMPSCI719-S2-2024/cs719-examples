@@ -1,6 +1,6 @@
 # CS719 - Multi-page applications
 
-This project contains several examples from the "Svelte II" lecture, along with helpful comments.
+This project contains several examples from the lecture on multi-page applications, along with helpful comments.
 
 In this project, you can see the following:
 
