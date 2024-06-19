@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+li {
+  padding: 5px;
+  border: 1px dotted lightslategray;
+  cursor: pointer;
+
+  /* This CSS line makes it so users can't select the text in the list items. */
+  user-select: none;
+}
+
+li:hover {
+  background-color: aliceblue;
+}

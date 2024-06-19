@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML forms</title>
+  </head>
+  <body>
+    <!-- A form's action will determine what to do when submitting - usually submit to a URL. -->
+    <!-- A form's method will determine the HTTP method to use when submitting. Usually GET or POST,
+      but there are more - more on this later on in the course! -->
+    <form action="https://echo.trex-sandwich.com/" method="GET">
+      <!-- Fieldset groups form elements; will draw a box around the grouped elements by default -->
+      <fieldset>
+        <!-- legend adds text to the fieldset, as a heading of sorts -->
+        <legend>Login details</legend>
+
+        <!-- labels describe form inputs. They are associated with a particular input
+         using the "for" attribute, which must match the "id" of a corresponding input. -->
+        <label for="txtName">Name:</label><br />
+
+        <!-- An input's name will be passed to the server on submission, along with the value the user has entered. -->
+        <!-- An input's type will determine the kind of data the user can enter. -->
+        <!-- An input's size will determine how big the input box is on the screen. -->
+        <input id="txtName" name="name" type="text" size="50" /><br />
+        <label for="txtPassword">Password:</label><br />
+        <input id="txtPassword" name="password" type="password" size="50" />
+      </fieldset>
+      <fieldset>
+        <legend>Further information</legend>
+
+        <p>Favourite animals:</p>
+        <p>
+          <!-- Nesting the input inside its label like this will allow us to click
+           anywhere on the label or the checkbox to toggle the status. -->
+          <label>
+            <input type="checkbox" name="favourite-animal" value="cat" />
+            Cat
+          </label>
+          <label>
+            <input type="checkbox" name="favourite-animal" value="dog" />
+            Dog
+          </label>
+          <label>
+            <input type="checkbox" name="favourite-animal" value="bunny" />
+            Bunny
+          </label>
+          <label>
+            <input type="checkbox" name="favourite-animal" value="trex" />
+            T-Rex
+          </label>
+        </p>
+
+        <p>Choose your starter:</p>
+        <p>
+          <label>
+            <!-- Charmander is checked by default because it is the best one. But you can change it to Squirtle
+             or Bulbasaur if you really want to be wrong. -->
+            <input
+              type="radio"
+              name="starter-pokemon"
+              value="charmander"
+              checked
+            />
+            Charmander
+          </label>
+          <label>
+            <input type="radio" name="starter-pokemon" value="squirtle" />
+            Squirtle
+          </label>
+          <label>
+            <input type="radio" name="starter-pokemon" value="bulbasaur" />
+            Bulbasaur
+          </label>
+        </p>
+
+        <p>
+          <label for="selCountryBorn">Where were you born?</label>
+          <!-- A "select" will display a drop-down box with the given options to choose from. -->
+          <select id="selCountryBorn" name="country-born">
+            <option value="nz" selected>New Zealand</option>
+            <option value="aus">Australia</option>
+            <option value="in">India</option>
+            <option value="us">United States</option>
+            <option value="other">other</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="selCountriesLived">
+            In which countries have you lived? Select all that apply.
+          </label>
+          <!-- "multiple" selects will display a list of all the options to choose from. -->
+          <select id="selCountriesLived" name="countries-lived" multiple>
+            <option value="nz">New Zealand</option>
+            <option value="aus">Australia</option>
+            <option value="in">India</option>
+            <option value="us">United States</option>
+            <option value="other">other</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="txtAbout">About me:</label><br />
+          <!-- textareas are large, multi-line text inputs. -->
+          <textarea id="txtAbout" name="about-me" rows="4" cols="40">
+          </textarea>
+        </p>
+      </fieldset>
+
+      <p>
+        <!-- buttons can be configured to do different actions when clicked, either with their "type" attribute
+         as shown here, or (later on in the course) with some JavaScript code. -->
+        <button type="reset">Reset the form!</button>
+        <button type="submit">Submit the form!</button>
+      </p>
+    </form>
+  </body>
+</html>
