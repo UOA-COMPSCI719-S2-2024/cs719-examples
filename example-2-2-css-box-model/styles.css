@@ -1,0 +1,35 @@
+/* All divs have an alice-blue background color, and will be between 100 - 300px in width depending on their text content. */
+div {
+  background-color: aliceblue;
+  min-width: 100px;
+  max-width: 300px;
+}
+
+#div-1 {
+  margin: 20px; /* 20px margin on all sides */
+  border: 2px solid red; /* 2px red solid border on all sides */
+  padding: 10px; /* 10px padding on all sides */
+}
+
+#div-2 {
+  margin: 30px 10px; /* 30px top and bottom margin, 10px left and right margin */
+  border: 2px solid red;
+  padding: 50px 5px; /* 50px top and bottom padding, 5px left and right padding */
+}
+
+#div-3 {
+  margin-left: 10px; /* Individual left margin */
+  margin-right: 15px; /* Individual right margin */
+  margin-top: 20px; /* Individual top margin */
+  margin-bottom: 30px; /* Individual bottom margin */
+
+  border-left: 2px solid #333; /* Individual left border */
+  border-right: 1px dashed #999; /* Individual right border */
+  border-top: 3px dotted #555; /* Individual top border */
+  border-bottom: 4px double #777; /* Individual bottom border */
+
+  padding-left: 20px; /* Individual left padding */
+  padding-right: 15px; /* Individual right padding */
+  padding-top: 10px; /* Individual top padding */
+  padding-bottom: 25px; /* Individual bottom padding */
+}

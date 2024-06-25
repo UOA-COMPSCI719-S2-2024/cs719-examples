@@ -1,0 +1,115 @@
+.container {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: 100px 1fr 100px;
+
+  /**
+   * This defines five named areas in this grid: header, lsidebar, main, rsidebar, and footer.
+   * - The "header" area takes up the entire first row.
+   * - The "lsidebar" area takes up the first column in the second row.
+   * - The "main" area takes up the second column in the second row.
+   * - The "rsidebar" area takes up the third column in the second row.
+   * - The "footer" area takes up the entire third row.
+   */
+  grid-template-areas:
+    "header header header"
+    "lsidebar main rsidebar"
+    "footer footer footer";
+}
+
+.container > :not(.main-content) {
+  text-align: center;
+}
+
+.float-left {
+  float: left;
+  margin-right: 10px;
+}
+
+.sidebar-left {
+  background-color: salmon;
+
+  /* This element will be placed in the "lsidebar" grid area in its parent. */
+  grid-area: lsidebar;
+}
+
+.sidebar-right {
+  background-color: darksalmon;
+
+  /* This element will be placed in the "rsidebar" grid area in its parent. */
+  grid-area: rsidebar;
+}
+
+.header {
+  background-color: goldenrod;
+
+  /* This element will be placed in the "header" grid area in its parent. */
+  grid-area: header;
+
+  /**
+   * Although the header is laid out according to its container's grid layout,
+   * it can itself lay out its children according to its own rules (flex, in this case).
+   */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer {
+  background-color: gold;
+
+  /* This element will be placed in the "footer" grid area in its parent. */
+  grid-area: footer;
+}
+
+.main-content {
+  background-color: white;
+  text-align: justify;
+  padding: 10px;
+
+  /* This element will be placed in the "main" grid area in its parent. */
+  grid-area: main;
+
+  /**
+   * Although the main-content div is laid out according to its parent container's
+   * grid layout, it can itself lay out its children according to its own
+   * rules (flex, in this case).
+   */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tile {
+  flex: 1 200px;
+  margin: 20px;
+  background-color: beige;
+  border: 1px solid black;
+  text-align: center;
+}
+
+/* The CSS inside this media query will only trigger when the webpage
+    is displayed in a window at MOST 600px in width. */
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+
+    /**
+     * On screens 600px or smaller, these four named grid areas will take up a whole row each,
+     * while the "rsidebar" area - not mentioned here - will not be displayed at all.
+     * This allows us to completely re-shape the layout of the page based on screen size, to enable
+     * the page to be displayed easier on mobile devices.
+     */
+    grid-template-areas:
+      "header"
+      "lsidebar"
+      "main"
+      "footer";
+  }
+
+  .sidebar-right {
+    display: none;
+  }
+}

@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+}
+
+/*
+grid-template-columns:
+- This property defines the size and layout of the columns in the grid. In the example, we have four columns specified:
+    The first column has an automatic width (auto), which means it will adjust based on its content.
+    The second column takes up twice the available space (2fr).
+    The third column has a fixed width of 200 pixels.
+    The fourth column takes up the remaining available space (1fr).
+  Overall, this property sets up a flexible column layout.
+
+grid-auto-rows:
+- This property defines the height of rows that are implicitly created (i.e., not explicitly defined using grid-template-rows).
+  In the example, each implicitly created row will have a height of 70 pixels.
+
+column-gap:
+- This property specifies the gap (space) between columns. In the example, there will be a 10-pixel gap between adjacent columns.
+
+row-gap:
+- This property specifies the gap (space) between rows. In the example, there will be a 2-pixel gap between adjacent rows.
+
+justify-items:
+- This property aligns the items (content) within the grid cells along the horizontal axis.
+  In the example, all items are centered horizontally (center), meaning they will be centered within their
+  respective grid cells.
+
+align-items:
+- This property aligns the items (content) within the grid cells along the vertical axis.
+  In the example, all items are centered vertically (center), meaning they will be centered within their respective grid cells.
+
+Overall, the given CSS creates a grid container with specific column sizes, row heights, gaps, and alignment settings.
+The items placed inside this grid will follow these rules for layout and positioning.
+*/
+#container {
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: auto 2fr 200px 1fr;
+  grid-auto-rows: 70px;
+  column-gap: 10px;
+  row-gap: 2px;
+  justify-items: center;
+  align-items: center;
+}
+
+/*
+justify-self:
+- This property applies to an individual grid item (element) within a grid container.
+  It defines how the item should be aligned along the horizontal axis (inline axis) within its grid cell.
+  In this case, the value start is used, which means the item will be aligned to the start (left edge) of its grid cell.
+
+align-self:
+- This property also applies to an individual grid item within a grid container.
+  It defines how the item should be aligned along the vertical axis (block axis) within its grid cell.
+  In this case, the value start is used, which means the item will be aligned to the start (top edge) of its grid cell.
+*/
+#box2 {
+  justify-self: start;
+  align-self: start;
+}
+
+.box {
+  background-color: orchid;
+  box-sizing: border-box;
+  border: 1px dashed black;
+  text-align: center;
+}

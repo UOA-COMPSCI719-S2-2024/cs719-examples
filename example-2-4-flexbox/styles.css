@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+}
+
+#container {
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 10px;
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
+  display: flex; /* This container will layout its children using the flex algorithm */
+  flex-direction: row; /* The container will lay out its children in a row (left to right) */
+
+  /* The container will evenly space its children along its major axis. The major axis is the one equal to the flex direction. */
+  justify-content: space-evenly;
+
+  /* The container will center its children along the minor axis. */
+  align-items: center;
+}
+
+#box1 {
+  align-self: flex-start; /* This override causes the first box to be aligned at the start of the minor axis (top, in this case) */
+}
+
+#box3 {
+  align-self: flex-end; /* This override causes the third box to be aligned at the end of the minor axis (bottom, in this case) */
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: orchid;
+  box-sizing: border-box;
+  border: 1px dashed black;
+  text-align: center;
+  margin: 2px;
+}

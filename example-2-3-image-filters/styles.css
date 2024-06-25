@@ -1,0 +1,16 @@
+img {
+  width: 50%;
+  height: auto;
+}
+
+#filter1 {
+  filter: brightness(40%);
+}
+
+#filter2 {
+  filter: contrast(200%);
+}
+
+#filter3 {
+  filter: blur(2px) sepia(70%);
+}

@@ -1,0 +1,72 @@
+/* Style the strongs that are descendents of #first-para */
+#first-para strong {
+  color: black;
+}
+
+/* Style the strongs that are CHILDREN of #first-para */
+/*#first-para > strong {
+    color: black;
+  }*/
+
+/* Style inputs with type="text" */
+input[type="text"] {
+  background-color: yellow;
+}
+
+/* Style the input that currently has focus. */
+input:focus {
+  background-color: green;
+}
+
+/* Style all h1's */
+h1 {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 50pt;
+}
+
+/* Style all p's */
+p {
+  color: crimson;
+  border: 2px solid red;
+  font-size: 15pt;
+}
+
+/* Style all p's I'm NOT hovering over with the mouse */
+/*p:not(:hover) {
+    color: crimson;
+    border: 2px solid red;
+    font-size: 15pt;
+  }*/
+
+/* Style all li's I'm hovering over with the mouse */
+li:hover {
+  background-color: #123456;
+}
+
+/* Style all tables */
+table {
+  /* This makes the borders between table cells disappear.
+       Remove this and look at the table to see the difference. */
+  border-collapse: collapse;
+}
+
+/* Style all rows in the thead */
+thead > tr {
+  background-color: lightgray;
+}
+
+/* Style all oddly-numbered rows in the tbody */
+tbody > tr:nth-child(odd) {
+  background-color: aquamarine;
+}
+
+#margin-padding-demo {
+  /*   padding-left: 30px; */
+
+  /* top, right, bottom, left */
+  padding: 20px 40px 60px 80px;
+
+  /* Set the same on all sides */
+  margin: 40px;
+}
