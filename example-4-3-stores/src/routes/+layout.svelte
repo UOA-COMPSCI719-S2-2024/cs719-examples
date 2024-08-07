@@ -12,7 +12,11 @@
     <!-- The class:active syntax here applies the "active" CSS class if the given condition is true. -->
     <li><a href="/" class:active={path === "/"}>Home</a></li>
 
-    <li><a href="/todos" class:active={path === "/todos"}>Todo List</a></li>
+    <li>
+      <a href="/favourite-things" class:active={path === "/favourite-things"}>
+        My favourite things
+      </a>
+    </li>
   </ul>
 </nav>
 

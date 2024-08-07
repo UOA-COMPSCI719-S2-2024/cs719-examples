@@ -16,10 +16,14 @@ In this project, you can see the following:
 
 - **Derived stores**: We can create stores whose values are determined by the values of other stores. Then, when one store changes, the derived store's value will be automatically updated. A couple of examples of this are provide in `basic-stores.js` (`squareStore` on line 19, and `personStore` on line 34). We can access the values of derived stores in the same way as "normal" stores (i.e. by prepending with `$`).
 
-- **Todo list**: The page at [`/todos`](./src/routes/todos/+page.svelte) puts together many of the concepts Svelte II, into a more "real" app, allowing users to add, modify, and delete items from a todo list. The todo list is backed by a Svelte store located at [`lib/js/todo-store.js`](./src/lib/js/todo-store.js). **Note:** We will cover multi-page apps next!
+- **Favourite things list**: The page at [`/favourite-things`](./src/routes/favourite-things/+page.svelte) puts together many of the concepts Svelte II, into a more "real" app, allowing users to add, modify, and delete items from a "favourite things" list. The list is backed by a Svelte store located at [`lib/js/favourite-things-store.js`](./src/lib/js/favourite-things-store.js). **Note:** We will cover multi-page apps next!
 
-  In this example, we can see that we can use a combination of stores and prop passing / event handling, in basically any combination. Our `NewTodoForm` component dispatches a custom event whenever the user wants to add a new todo item. This is added to the store in `+page.svelte`, which in turn passes the todo list store to the `TodoList` component as a _bound_ prop. We use `bind:` here so that whenever the `TodoList` component modifies the todo list in any way, the page and store will be properly updated to match.
+  In this example, in `favourite-things-store.js`, in addition to the store itself, we have three functions which are in charge of updating our list: `addThing()`, `removeThing()`, and `editThing()`. Read the method descriptions of these three functions, as they explain how we can use a store's `update()` method in combination with various JavaScript techniques we've learned previously in the course.
 
-  We could have instead made our `TodoList` component access the todos store directly, rather than supplying it as a bound prop. This is equally valid.
+  We are also using the `uuid` `npm` package in this example, to generate unique `id`s for each of our "favourite things" items.
 
-  Within the `TodoList` component itself, we can see that binding to individual properties of a todo item works absolutely fine, and everything is updated as we would expect. We can also see how we can delete an item from the todos array by filtering out the item we'd like to delete.
+  The `FavouriteThingsList` Svelte component shows how we can iterate through the `$favouriteThingsStore` using a keyed `{#each}` block. Note the **$** at the beginning of the variable name - this is how we access store values from our code.
+
+  This component also shows how we can call our `editThing()` and `removeThing()` functions to modify the store - which will result in our UI being updated.
+
+  The `favourite-things/+page.js` also has an "add thing" form, showing how we can call our `addThing()` function to modify the store, and this change will be shown everywhere that accesses the store - including within our other component.

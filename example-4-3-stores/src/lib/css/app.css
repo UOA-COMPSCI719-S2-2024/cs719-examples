@@ -8,3 +8,20 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+button {
+  background-color: rgb(34, 118, 34);
+  color: white;
+  font-weight: bold;
+  padding: 0.3rem 1rem;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(27, 93, 27);
+  }
+
+  &:active {
+    background-color: rgb(19, 67, 19);
+  }
+}
