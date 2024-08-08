@@ -9,6 +9,7 @@
   import Counter from "$lib/components/Counter.svelte";
   import CounterSquared from "$lib/components/CounterSquared.svelte";
   import ShoppingList from "$lib/components/ShoppingList.svelte";
+  import StaffList from "$lib/components/StaffList.svelte";
 
   /**
    * This function will be called when the button below is clicked.
@@ -17,6 +18,14 @@
   function onButtonClick(event) {
     alert("Thanks for clicking me!");
   }
+
+  // Is used in the StaffList component below.
+  const gradSchoolStaff = [
+    { id: 1, firstName: "Yu-Cheng", lastName: "Tu" },
+    { id: 2, firstName: "Andrew", lastName: "Meads" },
+    { id: 3, firstName: "Tyne", lastName: "Crow" },
+    { id: 4, firstName: "David", lastName: "Huang" }
+  ];
 </script>
 
 <!-- The "HTML" section of the doc starts here. We can use a mix of
@@ -51,13 +60,16 @@
 <!-- An empty shopping list -->
 <ShoppingList list={[]} />
 
+<!-- A staff list, which shows keyed #each block. -->
+<StaffList allStaff={gradSchoolStaff} />
+
 <!-- An "internal" style. CSS defined here will only apply to this component. -->
 <style>
   .buttonPanel {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     gap: 10px;
   }
 </style>
