@@ -14,7 +14,7 @@ In this project, you can see the following:
 
   In this app, there are also many examples of sharing data using stores. For example, `Counter` and [`CounterDisplay`](./src/lib/components/CounterDisplay.svelte) both get their data from the `counterStore` store defined in `basic-stores.js`. Therefore, when the user changes the counter value, the displayed sentence will also change.
 
-- **Derived stores**: We can create stores whose values are determined by the values of other stores. Then, when one store changes, the derived store's value will be automatically updated. A couple of examples of this are provide in `basic-stores.js` (`squareStore` on line 19, and `personStore` on line 34). We can access the values of derived stores in the same way as "normal" stores (i.e. by prepending with `$`).
+- **Derived stores**: We can create stores whose values are determined by the values of other stores. Then, when one store changes, the derived store's value will be automatically updated. A couple of examples of this are provide in `basic-stores.js` (`squareStore` on line 19, and `mathyStore` on line 33). We can access the values of derived stores in the same way as "normal" stores (i.e. by prepending with `$`).
 
 - **Favourite things list**: The page at [`/favourite-things`](./src/routes/favourite-things/+page.svelte) puts together many of the concepts Svelte II, into a more "real" app, allowing users to add, modify, and delete items from a "favourite things" list. The list is backed by a Svelte store located at [`lib/js/favourite-things-store.js`](./src/lib/js/favourite-things-store.js). **Note:** We will cover multi-page apps next!
 

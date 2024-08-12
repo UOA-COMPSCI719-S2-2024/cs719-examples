@@ -9,7 +9,14 @@ import { derived, writable } from "svelte/store";
 export const counterStore = writable(0);
 
 /**
- * Create a derived store called "squaredStore" which will automatically calculate
+ * Create a store called "powerStore" with the initial value of 2.
+ *
+ * Export it so we can import it into other places in our code.
+ */
+export const powerStore = writable(2);
+
+/**
+ * Create a derived store called "squareStore" which will automatically calculate
  * the square of the above store.
  *
  * The first argument to this function is either a single store or an array of stores from which
@@ -17,25 +24,12 @@ export const counterStore = writable(0);
  * from the input stores.
  */
 export const squareStore = derived(counterStore, ($counterStore) => Math.pow($counterStore, 2));
+squareStore.subscribe((value) => console.log(value));
 
 /**
- * Here's another couple of stores which store string data this time
+ * And here's one more derived store, this one depends on two source stores, both counterStore and powerStore.
+ * Its derived value will be the value of counterStore, raised to the power of the value of powerStore.
  */
-export const firstNameStore = writable("");
-export const lastNameStore = writable("");
-
-/**
- * And here's one more derived store, which creates a JS object from the values in all of the above stores.
- * Note that the first argument is an array of all the input stores we need, and the arrow function defined
- * in the second argument takes that same array.
- *
- * The derived result will be a JS object with a firstName, lastName, and age property.
- */
-export const personStore = derived(
-  [squareStore, firstNameStore, lastNameStore],
-  ([$squareStore, $firstNameStore, $lastNameStore]) => ({
-    firstName: $firstNameStore,
-    lastName: $lastNameStore,
-    age: $squareStore
-  })
+export const mathyStore = derived([counterStore, powerStore], ([$counterStore, $powerStore]) =>
+  Math.pow($counterStore, $powerStore)
 );

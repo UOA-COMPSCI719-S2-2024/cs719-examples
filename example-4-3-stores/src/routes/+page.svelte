@@ -2,8 +2,8 @@
   import Counter from "$lib/components/Counter.svelte";
   import CounterDisplay from "$lib/components/CounterDisplay.svelte";
   import SquareDisplay from "$lib/components/SquareDisplay.svelte";
-  import NameForm from "$lib/components/NameForm.svelte";
-  import SelfIntroduction from "$lib/components/SelfIntroduction.svelte";
+  import PowerInput from "$lib/components/PowerInput.svelte";
+    import MathDisplay from "$lib/components/MathDisplay.svelte";
 </script>
 
 <svelte:head>
@@ -36,8 +36,9 @@
 
 <h2>More stores!</h2>
 <p>
-  See if you can examine the source code and trace how the two components get and share their data.
+  See if you can examine the source code and trace how the different components get and share their
+  data.
 </p>
 
-<NameForm />
-<SelfIntroduction />
+<PowerInput />
+<MathDisplay />

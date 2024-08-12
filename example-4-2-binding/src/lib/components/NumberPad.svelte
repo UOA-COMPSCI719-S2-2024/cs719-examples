@@ -6,7 +6,7 @@
   // We need to access Svelte's createEventDispatcher function to create our own custom events.
   import { createEventDispatcher } from "svelte";
 
-  const NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, null, 0, null];
+  const NUMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
   /**
    * This gets us access to an event dispatcher (the "dispatch" variable), which we can call to
@@ -28,14 +28,9 @@
 </script>
 
 <div>
-  <!-- Loop through our NUMS array. Display a button for each number (or a grid placeholder if null). -->
+  <!-- Loop through our NUMS array. Display a button for each number. -->
   {#each NUMS as num}
-    {#if num != null}
-      <!-- Whenever this button is clicked, we will dispatch our custom event. -->
-      <button on:click={() => dispatchNumberClickedEvent(num)}>{num}</button>
-    {:else}
-      <span><!-- Placeholder --></span>
-    {/if}
+    <button on:click={() => dispatchNumberClickedEvent(num)}>{num}</button>
   {/each}
 </div>
 
@@ -45,5 +40,9 @@
     grid-template-columns: repeat(3, 50px);
     grid-auto-rows: 50px;
     gap: 5px;
+
+    & :last-child {
+      grid-column: 2 / 3;
+    }
   }
 </style>
