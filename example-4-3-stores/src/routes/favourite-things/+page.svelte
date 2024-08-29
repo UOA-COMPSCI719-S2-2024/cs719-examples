@@ -12,8 +12,8 @@
 </script>
 
 <h1>My Favourite Things</h1>
-This page shows of a more "complete" example, showing how we can build a "favourite things" app, backed
-by a Svelte store.
+<p>This page shows of a more "complete" example, showing how we can build a "favourite things" app, backed
+by a Svelte store.</p>
 
 <div class="container">
   <div>

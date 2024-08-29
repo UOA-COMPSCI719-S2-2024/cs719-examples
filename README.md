@@ -56,6 +56,10 @@ This repository contains example code which you can run and play around with. **
 
 4. [**multi-page-apps**](./example-4-4-multi-page-apps/): Contains examples showing how the SvelteKit filesystem-based router can be used to provide multi-page apps. Includes information on routes, file & directory structure, layouts and `<slot>`s, hyperlinks, route parameters, and more.
 
+5. [**svelte-data-fetching-in-components**](./example-4-5-svelte-data-fetching-in-components/): Contains examples of how we can `fetch()` data from a server from within our Svelte components - both at component load time, or when our application state changes (using reactive statements).
+
+6. [**sveltekit-data-fetching**](./example-4-6-sveltekit-data-fetching/): Contains examples showing the _preferred_ method of data fetching using SvelteKit. We show how to write a `load()` function in `+layout.js` or `+page.js`, and how that data can then be accessed using a special `data` variable we declare in our `+layout.svelte` and `+page.svelte` components.
+
 ### Topic 5: Node.js, Express, and APIs
 
 1. [**the-simplest-server**](./example-5-1-the-simplest-server/): Contains a project showing now [Node.js](https://nodejs.org/en) can be used to create a simple HTTP server, with no additional dependencies. In practice, using Node by itself for this purpose is very uncommon; we usually use an additional framework such as Express (see below) on top of this.
