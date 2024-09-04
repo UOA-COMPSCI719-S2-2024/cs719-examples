@@ -1,5 +1,6 @@
 import yup from "yup";
 import { getDatabase } from "./database.js";
+import { updateDatabase } from "./util.js";
 
 /**
  * This schema defines a valid "create customer" request.
@@ -134,33 +135,10 @@ export async function updateCustomer(id, updateData) {
     stripUnknown: true
   });
 
-  // Build the update statement. firstName, lastName, and email are all optional so we can't just write one SQL query
-  // that updates all three, if all three aren't used. We must consider each one one-by-one.
-  const updateOperations = [];
-  const updateParams = [];
-  if (validatedUpdateData.firstName) {
-    updateOperations.push("firstName = ?");
-    updateParams.push(validatedUpdateData.firstName);
-  }
-  if (validatedUpdateData.lastName) {
-    updateOperations.push("lastName = ?");
-    updateParams.push(validatedUpdateData.lastName);
-  }
-  if (validatedUpdateData.email) {
-    updateOperations.push("email = ?");
-    updateParams.push(validatedUpdateData.email);
-  }
-
-  // If we aren't actually updating anything just get outta here.
-  if (updateParams.length === 0) return false;
-
-  // Build actual SQL statement
-  const sql = `UPDATE Customers SET ${updateOperations.join(", ")} WHERE id = ?`;
-  console.log(sql);
-
-  // Execute SQL
   const db = await getDatabase();
-  const dbResult = await db.run(sql, ...updateParams, parseInt(id));
+
+  // Execute update using the updateDatabase() utility function provided.
+  const dbResult = await updateDatabase(db, "Customers", validatedUpdateData, parseInt(id));
 
   // Return true if changes were made, false otherwise.
   return dbResult.changes > 0;
