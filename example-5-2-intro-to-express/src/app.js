@@ -123,7 +123,10 @@ app.get("/api/people/:id", (req, res) => {
  * representation of that person.
  */
 app.post("/api/people", (req, res) => {
-  const newPerson = createPerson(req.body.firstName, req.body.lastName, req.body.email);
+
+  const { firstName, lastName, email } = req.body;
+
+  const newPerson = createPerson(firstName, lastName, email);
 
   return res.status(201).location(`/api/people/${newPerson.id}`).json(newPerson);
 });

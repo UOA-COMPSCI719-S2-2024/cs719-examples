@@ -7,10 +7,12 @@
    * and using it to find the article with the matching id.
    */
   $: article = articles.find((a) => a.id == $page.params.id);
+  $: pageTitle = article ? article.title : "Not found";
 </script>
 
 <svelte:head>
-  {#if article}<title>{article.title}</title>{/if}
+  <!-- {#if article}<title>{article.title}</title>{/if} -->
+   <title>{pageTitle}</title>
 </svelte:head>
 
 {#if article}
